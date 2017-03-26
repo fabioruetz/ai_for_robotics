@@ -31,7 +31,7 @@ validation_output = output_data[idx_switch:, :]
 
 # Fit model
 lm = model.LinearRegressionModel()
-lm.set_feature_vector([features.LinearX1(), #TODO ])
+lm.set_feature_vector([features.LinearX1(), features.ExponetialX2()])
 lm.fit(training_input, training_output)
 
 # sklearn

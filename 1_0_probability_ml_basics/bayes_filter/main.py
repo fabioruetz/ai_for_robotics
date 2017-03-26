@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import pickle as pkl
-import numpy as np
 import BayesianFiltering
 
 
@@ -27,6 +26,7 @@ if (len(measurements) != len(motions)):
 result = BayesianFiltering.run_bayes_filter(
     measurements, motions, plot_histogram=True)
 pkl.dump(result, open("result_bayes_1.pkl", 'wb'))
+print('End of Data Set 01')
 
 data = pkl.load(open("data_2.pkl", 'rb'))
 measurements = data[0, :]
@@ -39,3 +39,4 @@ if (len(measurements) != len(motions)):
 result = BayesianFiltering.run_bayes_filter(
     measurements, motions, plot_histogram=True)
 pkl.dump(result, open("result_bayes_2.pkl", 'wb'))
+print ('End of Data Set 02')

@@ -10,7 +10,7 @@ def f(x):
   return x[0] ** 2 + math.exp(0.5 * x[0]) + 10 * math.sin(x[1]) + x[1] ** 2
 
 def fprime(x):
-  #TODO
+
 
 
 opt_out = #TODO

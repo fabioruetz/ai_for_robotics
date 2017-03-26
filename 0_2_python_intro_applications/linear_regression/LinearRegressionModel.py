@@ -38,7 +38,14 @@ class LinearRegressionModel():
     n_samples = input_data.shape[0]
     n_features = len(self.feature_vec)
     X = np.zeros([n_samples, n_features])
-    #TODO
+
+    for i in range(X.shape[1]):
+      X[:,i] = input_data[:,i]
+    X[:,X.shape[1]] = np.ones((X.shape[0],1))
+
+
+
+
     return X
 
   def fit(self, input_data, output_data):
