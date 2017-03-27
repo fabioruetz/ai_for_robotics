@@ -5,6 +5,8 @@ import LinearRegressionModel as model
 import DataSaver as saver
 import matplotlib.pyplot as plt
 import pickle as pkl
+from sklearn.model_selection import train_test_split
+from sklearn import linear_model
 
 # Remove lapack warning on OSX (https://github.com/scipy/scipy/issues/5998).
 import warnings
@@ -43,18 +45,18 @@ if(show_plots):
 # Split data into training and validation
 # TODO Overcome the problem of differently biased data
 ratio_train_validate = 0.8
-idx_switch = int(n_samples * ratio_train_validate)
-training_input = input_data[:idx_switch, :]
-training_output = output_data[:idx_switch, :]
-validation_input = input_data[idx_switch:, :]
-validation_output = output_data[idx_switch:, :]
+training_input, validation_input, training_output, validation_output = \
+train_test_split(input_data, output_data, test_size=1-ratio_train_validate,\
+                 random_state=42)
 
 # Fit model
 lm = model.LinearRegressionModel()
 # TODO use and select the new features
-lm.set_feature_vector([features.LinearX1(), features.LinearX2(),
-                       features.SquareX1(), features.ExpX2(),
-                       features.LogX1(), features.Identity()])
+lm.set_feature_vector([features.Identity(), features.LinearX3(),
+                       features.SinX2(),features.ExpX1(), features.CosX4(),
+                       features.CrossTermX2X3()
+                      ])
+
 lm.fit(training_input, training_output)
 
 
