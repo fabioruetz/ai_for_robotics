@@ -17,13 +17,14 @@ def logistic_function(w, x):
     #assert(L.shape[0]<2)
     return L
 
-# Calculates the hessian matrix which is the second derivative of the cost
-# function J with respect to w [dx1]
-# Input: w weigth vector [dx1]
-# Input data_x: data for Newtons method [[x1],[x2],[x3]...,[xn]], [nxd] xi[
-# n,1]
-# Output: H Hessian Matrix [nxn]
+
 def hessian_matrix(w, data_x, normalizer = False):
+    # Calculates the hessian matrix which is the second derivative of the cost
+    # function J with respect to w [dx1]
+    # Input: w weigth vector [dx1]
+    # Input data_x: data for Newtons method [[x1],[x2],[x3]...,[xn]], [nxd] xi[
+    # n,1]
+    # Output: H Hessian Matrix [nxn]
     H = np.zeros((data_x.shape[1], data_x.shape[1]))
 
     for x_i in range(data_x.shape[0]):
@@ -35,9 +36,6 @@ def hessian_matrix(w, data_x, normalizer = False):
     if normalizer is True:
         H = H/data_x[0]
 
-    # Check matrix dimension
-    #assert(H.shape[0] |= data_x.shape[0])
-    #assert (H.shape[1] not data_x.shape[0])
     return H
 
 def gradiant_J(w,data_x,y, normalizer):
