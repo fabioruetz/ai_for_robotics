@@ -5,8 +5,8 @@ import numpy as np
 import MarkovRandomField
 import cv2
 
-image1 = pkl.load(open("data_1.pkl", 'rb'))
-image2 = pkl.load(open("data_2.pkl", 'rb'))
+image1 = pkl.load(open("data_1.pkl", 'rb'),  encoding='latin1')
+image2 = pkl.load(open("data_2.pkl", 'rb'), encoding='latin1')
 features1 = cv2.cvtColor(image1, cv2.COLOR_BGR2LAB)
 features2 = cv2.cvtColor(image2, cv2.COLOR_BGR2LAB)
 

@@ -15,7 +15,7 @@ class ProgrammaticError(Exception):
         print("\033[91mERROR: \x1b[0m {}".format(msg))
 
 
-data = pkl.load(open("data_1.pkl", 'rb'))
+data = pkl.load(open("data_1.pkl", 'rb'), , encoding='latin1')
 measurements = data[0, :]
 motions = data[1, :]
 
